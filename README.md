@@ -35,7 +35,8 @@ sudo systemctl start redis
 sudo systemctl enable redis
 
 Mysql
-Para instalar mysql primero visitar https://dev.mysql.com/downloads/repo/yum/ Una vez ahi descargar la version para centos7 (linux7)
+Para instalar mysql primero visitar https://dev.mysql.com/downloads/repo/yum/ 
+Una vez ahi descargar la version para centos7 (linux7)
 
 wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
 
