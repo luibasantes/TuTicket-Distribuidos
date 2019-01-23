@@ -80,8 +80,8 @@ INSERT INTO asiento (id, numero, disponible, evento_id, localidad_id) VALUES
 	(8, 4, true, 1, 2);
 
 INSERT INTO localidad (id, nombre, precio) VALUES
-	(1, 'Palco', '100,00'),
-	(2, 'Tribuna', '50,00');
+	(1, 'Palco', 100.00),
+	(2, 'Tribuna', 50.00);
 
 INSERT INTO boleto (id, asiento_id, usuario_id) VALUES
 	(1, 1, 1),
