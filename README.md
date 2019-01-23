@@ -1,56 +1,57 @@
-# TuTicket-Distribuidos
+# **TuTicket-Distribuidos**
 
-Proyecto de Sistemas Distribuidos Espol
+## Proyecto de Sistemas Distribuidos Espol
 
 Integrantes:
 Allan Alarcón
 Luigi Basantes Zambrano
 Juan Crow
 
-Dependencias a instalar
-Instalar GoLan
+### Dependencias a instalar
+### Instalar GoLan
 
 wget https://dl.google.com/go/go1.10.3.linux-amd64.tar.gz
 
-sha256sum go1.10.3.linux-amd64.tar.gz #Verificar que el output del checksum quede igual a este
+### Calculamos el CheckSum
+sha256sum go1.10.3.linux-amd64.tar.gz 
 
+#### Verificar que el output del checksum quede igual a este
 fa1b0e45d3b647c252f51f5e1204aba049cde4af177ef9f2181f43004f901035  go1.10.3.linux-amd64.tar.gz
 
-#Usar tar para extraer los archivos en /usr/local
-
+#### Usar tar para extraer los archivos en /usr/local
 sudo tar -C /usr/local -xzf go1.10.3.linux-amd64.tar.gz
 
-#Adjustar la variable de ambiente agregando la siguiente linea al archivo ~/.bash_profile
+#### Adjustar la variable de ambiente agregando la siguiente linea al archivo ~/.bash_profile
 
 export PATH=$PATH:/usr/local/go/bin
 
-#Volvemos a cargar la variable de ambiente para poder empezar a usar GO lan
+#### Volvemos a cargar la variable de ambiente para poder empezar a usar GO lan
 
 source ~/.bash_profile
 
 
 
-Instalar net
+### Instalar net
 
 go get -u golang.org/x/net
 
-Instalar go-sql-driver
+### Instalar go-sql-driver
 
 go get -u github.com/go-sql-driver/mysql
 
-Instalar go-redis
+### Instalar go-redis
 
 go get -u github.com/go-redis/redis
 
-Instalar gin
+### Instalar gin
 
 go get -u github.com/gin-gonic/gin
 
-Otras Dependencias.
+### Otras Dependencias.
 
-Redis
+### Redis
 
-Para la instalacion de Redis seguir:
+#### Para la instalacion de Redis seguir:
 
 sudo yum install epel-release
 
@@ -58,56 +59,53 @@ sudo yum update
 
 sudo yum install redis
 
-Para habilitarlo y que se inicie al booteo
+#### Para habilitarlo y que se inicie al booteo
 
 sudo systemctl start redis
 
 sudo systemctl enable redis
 
-Mysql
+### Mysql
 
-Para instalar mysql primero visitar https://dev.mysql.com/downloads/repo/yum/ 
+#### Para instalar mysql primero visitar https://dev.mysql.com/downloads/repo/yum/ 
 
-Una vez ahi descargar la version para centos7 (linux7)
+#### Una vez ahi descargar la version para centos7 (linux7)
 
 wget https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
 
-Comprobar la firma y comparar con el sitio web (curiosamente usan md5 un hash que ya ha demostrado vulnerabilidades)
+#### Comprobar la firma y comparar con el sitio web (curiosamente usan md5 un hash que ya ha demostrado vulnerabilidades)
 
 md5sum https://dev.mysql.com/get/mysql80-community-release-el7-1.noarch.rpm
 
 
-Output
+#### Output
 739dc44566d739c5d7b893de96ee6848  mysql80-community-release-el7-1.noarch.rpm
 
-Comprobar con el sitio web Una vez hecho esto instalar paquete y de ahi podremos acceder a yum para instalar mysql
-
+#### Comprobar con el sitio web Una vez hecho esto instalar paquete y de ahi podremos acceder a yum para instalar mysql
 
 sudo rpm -ivh mysql80-community-release-el7-1.noarch.rpm
 
 sudo yum install mysql-server
 
-Iniciar Mysql
+#### Iniciar Mysql
 
 sudo systemctl start mysqld
 
-Nota: no es necesario hacer que se inicie con el boot, ya mysql lo hace por defecto
+#### Nota: no es necesario hacer que se inicie con el boot, ya mysql lo hace por defecto
 
+### Nginx
 
-
-Nginx
-
-Para instalar Nginx
+#### Para instalar Nginx
 
 sudo yum install epel-release //en el caso de no haberlo instalado con redis
 
 sudo yum install nginx
 
-Para iniciarlo
+#### Para iniciarlo
 
 sudo systemctl start nginx
 
-Para permitir en el firewall
+#### Para permitir en el firewall
 
 sudo firewall-cmd --permanent --zone=public --add-service=http 
 
@@ -115,7 +113,7 @@ sudo firewall-cmd --permanent --zone=public --add-service=https
 
 sudo firewall-cmd --reload
 
-Para que se inicie con el booteo
+#### Para que se inicie con el booteo
 
 sudo systemctl enable nginx
 
