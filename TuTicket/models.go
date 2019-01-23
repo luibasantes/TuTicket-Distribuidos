@@ -37,7 +37,7 @@ type (
 		gorm.Model
 		Nombre string      `json:"nombre"`
 		Precio float64     `json:"precio"`
-		Asientos []Asiento
+		Asientos []AsientoModel
 	}
 
 	BoletoModel struct {
