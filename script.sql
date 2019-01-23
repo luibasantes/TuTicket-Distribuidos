@@ -8,6 +8,7 @@ CREATE TABLE evento (
 	descripcion VARCHAR(50) NULL,
 	fecha DATE NULL,
 	sede_id INT NOT NULL,
+	agotado BOOLEAN NULL,
 
 	PRIMARY KEY(id),
 	FOREIGN KEY (sede_id) REFERENCES sede(id)
@@ -63,8 +64,8 @@ CREATE TABLE usuario (
 	PRIMARY KEY(id)
 );
 
-INSERT INTO evento (id, nombre, descripcion, fecha, sede_id) VALUES
-	(1, 'Aerosmith', 'Concierto de Aerosmith', '2019-06-06', 1);
+INSERT INTO evento (id, nombre, descripcion, fecha, sede_id, agotado) VALUES
+	(1, 'Aerosmith', 'Concierto de Aerosmith', '2019-06-06', 1, false);
 
 INSERT INTO sede (id, nombre, tipo, ciudad, pais, direccion) VALUES
 	(1, 'Estadio Monumental', 'Estadio', 'Guayaquil', 'Ecuador', 'Av. Barcelona');
