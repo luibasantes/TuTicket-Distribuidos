@@ -2,10 +2,11 @@
 
 ## Proyecto de Sistemas Distribuidos Espol
 
-Integrantes:
-Allan Alarcón
-Luigi Basantes Zambrano
-Juan Crow
+###Integrantes:
+
+>Allan Alarcón
+>Luigi Basantes Zambrano
+>Juan Crow
 
 ### Dependencias a instalar
 ### Instalar GoLan
