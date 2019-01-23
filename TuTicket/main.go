@@ -1,12 +1,14 @@
 package main
 
 import (
-    "net/http"
-    "strconv"
+    //"net/http"
+    //"strconv"
     "github.com/jinzhu/gorm"
     "github.com/gin-gonic/gin"
     _ "github.com/jinzhu/gorm/dialects/mysql"
 )
+
+var db *gorm.DB
 
 //Conexión a la base de datos MySQL
 func init() {
@@ -18,7 +20,7 @@ func init() {
     }
 
     //Migrate the schema
-    db.AutoMigrate(&evento{})
+    db.AutoMigrate(&EventoModel{})
 
     //Para utilizar la variable db en otros scripts
     return func(c *gin.Context) {
