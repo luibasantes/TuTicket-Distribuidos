@@ -5,27 +5,27 @@ import (
 )
 
 type (
-	evento struct {
+	EventoModel struct {
 		gorm.Model
 		Nombre      string      `json:"nombre"`
 		Descripcion string      `json:"descripcion"`
 		Fecha       string      `json:"fecha"`
 		SedeId      uint        `json:"sede_id"`
 		Agotado     bool        `json:"agotado"`
-		Asientos []asiento
+		Asientos []AsientoModel
 	}
 
-	sede struct {
+	SedeModel struct {
 		gorm.Model
 		Nombre    string      `json:"nombre"`
 		Tipo      string      `json:"tipo"`
 		Ciudad    string      `json:"ciudad"`
 		Pais      string      `json:"pais"`
 		Direccion string      `json:"direccion"`
-		Eventos []evento
+		Eventos []EventoModel
 	}
 
-	asiento struct {
+	AsientoModel struct {
 		gorm.Model
 		Numero      uint      `json:"numero"`
 		Disponible  bool      `json:"disponible"`
@@ -33,24 +33,24 @@ type (
 		LocalidadId uint      `json:"localidad_id"`
 	}
 
-	localidad struct {
+	LocalidadModel struct {
 		gorm.Model
 		Nombre string      `json:"nombre"`
 		Precio float64     `json:"precio"`
-		Asientos []asiento
+		Asientos []Asiento
 	}
 
-	boleto struct {
+	BoletoModel struct {
 		gorm.Model
 		AsientoId uint      `json:"asiento_id"`
 		UsuarioId uint      `json:"usuario_id"`
 	}
 
-	usuario struct {
+	UsuarioModel struct {
 		gorm.Model
 		Usuario    string      `json:"usuario"`
 		Nombre     string      `json:"nombre"`
 		Contrasena string      `json:"contrasena"`
-		Boletos []boleto
+		Boletos []BoletoModel
 	}
 )
