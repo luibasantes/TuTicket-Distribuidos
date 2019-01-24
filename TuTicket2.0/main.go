@@ -123,6 +123,7 @@ func buyBoleto(c *gin.Context) {
 	//Encuentra el asiento con el id que se envió en el POST
 	var asiento AsientoModel
 	asientoID, _ := strconv.Atoi(c.PostForm("asientoID"))
+	//db.Where("id = ?", asientoID).First(&asiento)
 	db.First(&asiento, asientoID)
 
 	if asiento.ID == 0 {
@@ -135,22 +136,23 @@ func buyBoleto(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"status": http.StatusBadRequest, "message": "¡El asiento no está disponible!"})
 		return
 	}
-
+	/*
 	//Encuentra el usuario con el id que se envió en el POST
 	var usuario UsuarioModel
   	usuarioID, _ := strconv.Atoi(c.PostForm("usuarioID"))
+	db.Where("id = ?", usuarioID).First(&asiento)
 	db.First(&usuario, usuarioID)
 
 	if usuario.ID == 0 {
 		c.JSON(http.StatusNotFound, gin.H{"status": http.StatusNotFound, "message": "¡Usuario no encontrado!"})
 		return
 	}
-
+	
 	//Guarda el boleto comprado
 	var boleto BoletoModel
 	boleto = BoletoModel{AsientoId: uint(asientoID), UsuarioId: uint(usuarioID)}
 	db.Save(&boleto)
-
+	*/
 	//Actualiza la disponilidad del asiento
 	db.Model(&asiento).Update("Disponible", false)
 
