@@ -1,0 +1,24 @@
+<!--index.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  <form action="/" method="POST">
+    <div>
+      <input type="text" name="user"  placeholder="Usuario">
+    </div>
+    <div>
+      <input type="password" name="pass" placeholder="Password">
+    </div>
+    <div>
+      <a href="eventos.html"> Iniciar sesion </a>
+    </div>
+  </form>
+
+  <script>
+
+  </script>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

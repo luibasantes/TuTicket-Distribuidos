@@ -41,7 +41,7 @@ func main() {
     //Rutas para api
     api := router.Group("/api")
     {
-        api.POST("/auth", Auth)
+		api.POST("/auth", Auth)
     }
 
     router.Run()

@@ -1,0 +1,37 @@
+{{ template "header.html" .}}
+
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  <h2> Elegir Asiento </h2>
+  <div id="asiento-container">
+        <article>
+            <div>
+                <h5>Asientos disponibles</h5>
+            </div>
+            <div>
+                <p> localidad </p>
+                <select>
+                    <option>Palco</option>
+                    <option>Tribuna</option>
+                    <option>General</option>
+                    <option>VIP</option>
+                </select>
+                <p> Asiento </p>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>    
+                <select>
+            </div>
+            <a href="compra_finalizada.html"> Finalizar Compra </a>
+        </article>
+  </div>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

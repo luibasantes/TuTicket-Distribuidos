@@ -14,7 +14,7 @@ var db *gorm.DB
 func init() {
     //Open a db connection
     var err error
-    db, err = gorm.Open("mysql", "root:luigibasantes1@/tu_ticket?charset=utf8&parseTime=True&loc=Local")
+    db, err = gorm.Open("mysql", "root:luigibasantes1@tcp(http://54.67.110.157:3306)/tu_ticket?charset=utf8&parseTime=True&loc=Local")
     if err != nil {
         panic("Conexión con la base de datos fallida")
     }
@@ -43,11 +43,15 @@ func main() {
     //Redirecciona a la vista eventos como página principal
     router.GET("/", func(c *gin.Context){
     c.Redirect(http.StatusMovedPermanently, "/eventos")
-    })*/
+	})*/
+	
+	//Carga de templates
+	router.LoadHTMLGlob("templates/*.html")
 
     //Rutas para api
     api := router.Group("/api")
-    {
+    {	
+		api.GET("/",login)
         api.GET("/eventos", getAllEventos)
         api.GET("/eventos/:evento_id", getSingleEvento)
         api.GET("/eventos/:evento_id/asientos", getAsientos)
@@ -58,6 +62,9 @@ func main() {
     router.Run()
 }
 
+func login(c *gin.Context){
+	c.HTML(http.StatusOK,"index.html",gin.H{"status": http.StatusOK})
+}
 
 //Obtiene todos los eventos
 func getAllEventos(c *gin.Context) {
@@ -70,7 +77,8 @@ func getAllEventos(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": eventos})
+	//c.HTML(http.StatusOK,"eventos.html",gin.H{"status": http.StatusOK, "data": eventos})
+	//c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": eventos})
 }
 
 //Obtiene un solo evento
@@ -86,8 +94,8 @@ func getSingleEvento(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"status": http.StatusNotFound, "message": "¡Evento no encontrado!"})
 		return
 	}
-
-	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": evento})
+	c.HTML(http.StatusOK,"ver_evento.html",gin.H{"status": http.StatusOK, "data": evento})
+	//c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": evento})
 }
 
 //Obtiene todos los asientos de un evento
@@ -113,7 +121,8 @@ func getAsientos(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": asientos})
+	c.HTML(http.StatusOK,"elegir_asiento.html",gin.H{"status": http.StatusOK, "data": asientos})
+	//c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "data": asientos})
 }
 
 //Compra un boleto
@@ -156,6 +165,7 @@ func buyBoleto(c *gin.Context) {
 	//Actualiza la disponilidad del asiento
 	db.Model(&asiento).Update("Disponible", false)
 
+	//c.HTML(http.StatusOK,"eventos.html",gin.H{"status": http.StatusOK, "menssage": "!Boleto comprado! !Gracias por su compra!"})
 	c.JSON(http.StatusOK, gin.H{"status": http.StatusOK, "message": "¡Boleto comprado! ¡Gracias por su compra!"})
 }
 
