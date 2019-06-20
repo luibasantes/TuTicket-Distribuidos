@@ -8,7 +8,7 @@
 
 >Luigi Basantes Zambrano
 
->Juan Crow
+>Juan Crow Washbrum
 
 ### Dependencias a instalar
 ### Instalar GoLan
