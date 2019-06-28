@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html  lang="en" >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta content="Luigi Basantes" name="author">
+    <title>TuTicket.com</title>
+    <meta name="descripcion" content="Pagina de inicio de Sesion para TuTiket">
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <body>
+        <div class="pagewrap">
+            <form class="form" id="form">
+                <h3 class="form__title">Inicio de Sesion</h3>
+                <div class="container">
+                    <input class="container__input" type="text" id="username" name="username" value="" required>
+                        <label id="userLabel" for="username" class="container__label">Usuario</label>
+                        </div>
+                <div class="container">
+                    <input class="container__input" type="password" id="pass" name="password" value="" required>
+                        <label id="passLabel" for="pass" class="container__label">Contraseña</label>
+                        </div>
+                <button class="form__submit" id="submit" type="button" value="submit">Iniciar Sesion</button>
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="login.js"></script>
+    <body>
+</html>
