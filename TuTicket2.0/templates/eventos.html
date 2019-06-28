@@ -1,0 +1,36 @@
+{{ template "header.html" .}}
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  <h2>Eventos</h2>
+  <div id="events-container">
+        <article>
+            <div>
+                <h5>Concierto de Mana</h5>
+            </div>
+            <div>
+                <p> Concierto de los 2 decadas de trayectoria de Mana </p>
+                <a href="ver_evento.html">Link</a>
+            </div>
+        </article>
+  </div>
+
+  <script type="text/javascript">
+    fetch('http://54.67.110.157:8080/api/eventos',{headers: new Headers({
+    'User-agent': 'Mozilla/4.0 Custom User Agent',
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  })})
+    .then(response => {alert(response)})
+    .catch(error => {alert(error)})
+
+    $.ajax({url: "http://54.67.110.157:8080/api/eventos", success: function(result){
+        alert(result);
+  }});
+  </script>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}

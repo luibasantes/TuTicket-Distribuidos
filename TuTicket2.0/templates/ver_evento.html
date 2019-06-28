@@ -1,0 +1,20 @@
+{{ template "header.html" .}}
+
+  <!--Loop over the `payload` variable, which is the list of articles-->
+  <h2>Nombre Evento</h2>
+  <div id="events-info">
+        <h4> Informacion</h4>
+        <article>
+            <div>
+                <h5>Descripcion</h5>
+            </div>
+            <div>
+                <h5> Fecha </h5>
+                <p> dd/mm/aaaaa<p>
+            </div>
+        </article>
+        <a href="elegir_asiento.html"> Comprar boleto </a>
+  </div>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}
